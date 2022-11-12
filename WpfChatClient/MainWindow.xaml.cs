@@ -212,7 +212,7 @@ namespace WpfChatClient
             if (!string.IsNullOrEmpty(token))
             {
                 this.token = token;
-                MessageBox.Show("Success Login");
+                MessageBox.Show("Success Login...");
                 InitConnection();
                 /*
                 var tokenParts = token.Split('.');
@@ -227,6 +227,10 @@ namespace WpfChatClient
 
                 MessageBox.Show(decodedToken.ToString());
                 */
+            }
+            else
+            {
+                MessageBox.Show("Wrong credentials!");
             }
         }
 
