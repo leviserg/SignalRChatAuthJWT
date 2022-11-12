@@ -126,7 +126,7 @@ namespace WpfChatClient
                 try
                 {
                     //var mymessage = await hubConnection.InvokeAsync<ChatMessage>(addMessageKey, message);
-                    await hubConnection.SendAsync(addMessageKey, message);
+                    await hubConnection.InvokeAsync(addMessageKey, message);
                     AppendTextToTextBox($"{DateTime.Now.ToString("HH:mm:ss")} :  Me", message, Brushes.Green);
                 }
                 catch (Exception ex)
@@ -238,7 +238,7 @@ namespace WpfChatClient
         {
             using var httpClient = new HttpClient();
 
-            var authModel = new { Login = userName, Password = passwordBox.Password };
+            var authModel = new { Login = userNameTxtBox.Text, Password = passwordBox.Password };
 
             var json = JsonSerializer.Serialize(authModel);
 
